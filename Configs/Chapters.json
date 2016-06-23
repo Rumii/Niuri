@@ -1,0 +1,304 @@
+{
+    
+    "5": {
+        
+        "Utilities": {
+            
+            "ScheduleTask.view.interval": 25,
+            
+            "replace_ScheduleTask.view.values": [
+                                         {
+                                         "startPoint": [0, 0],
+                                         "endPoint": [0, 1],
+                                         "locations":[0.25, 0.75],
+                                         "colors":[[255, 255, 255, 0.75], [193, 230, 105, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [0, 0],
+                                         "endPoint": [0, 1],
+                                         "locations":[0.5, 0.75],
+                                         "colors":[[59, 59, 52, 0.75], [84, 94, 48, 0.25]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [1, 0],
+                                         "endPoint": [0, 0],
+                                         "locations":[0.5, 0.75],
+                                         "colors":[[39, 184, 184, 0.75], [176, 109, 218, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [1, 1],
+                                         "endPoint": [0, 0],
+                                         "locations":[0.5, 0.75],
+                                         "colors":[[109, 212, 218, 0.5], [218, 109, 212, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [0, 0],
+                                         "endPoint": [1, 1],
+                                         "locations":[0.2, 0.8],
+                                         "colors":[[109, 212, 218, 0.5], [109, 218, 116, 0.75]],
+                                         }
+                                         
+                                         
+                                         ]
+        },
+        
+        
+        "Controller_Schedule_Task" : {
+            
+            "view": {
+                
+                "backgroundView": {
+                    "~Executors" : {
+                        "1" : {
+                            "Action": "values.set",
+                            "keyPath": "layer",
+                            "stepTime": 3,
+                            "enableTransition": 1,
+                            "transitions": [10, 19],
+                            "values": {
+                                "startPoint": [0, 0],
+                                "endPoint": [0, 1],
+                                "locations":[0.4, 0.8],
+                                "colors":[[50, 55, 55, 0.75], [255, 255, 255, 0.5]],
+                            }
+                        },
+                        
+                        "2" : {
+                            "Action": "values.set",
+                            "keyPath": "image",
+                        }
+                    }
+                }
+            }
+        }
+        
+    },
+    
+    "6": "5",
+    
+    "7" : {
+        
+        "PHASES.POSITIONS": {
+            
+            "RollIn":  "rollout_0",
+            
+        },
+        
+        "CONFIG.POSITIONS" : {
+            
+            "RollIn" : {
+                
+                "LINES" : {
+                    
+                    "COPY": [[10,0],[10,1],[10,2],[10,3],[10,4],[10,5]],
+                    
+                    "COPY.COUNTS":   [10,11,10,11,15,20],
+                    
+                }
+            }
+            
+        }
+        
+    },
+    
+    "8" : {
+        
+        "PHASES.POSITIONS": {
+            
+            "RollIn":  "rollout_0",
+            
+        },
+        
+        "CONFIG.POSITIONS" : {
+            
+            "RollIn" : {
+                
+                "LINES" : {
+                    
+                    "COPY":  [[11,0], [11,1], [11,2], [11,3], [11,4], [11,5]],
+                    
+                    "COPY.COUNTS":   [10,11,10,11,15,20],
+                    
+                },
+                
+                "INDEXPATHS": {
+                    "isBackward": 1
+                }
+            }
+            
+        }
+        
+    },
+    
+    "9" : {
+        
+        "PHASES.POSITIONS": {
+            
+            "RollIn":  "rollout_0",
+            "RollOut": "rollin_0",
+            
+        },
+        
+        "SYMBOLS_ACTIONEXECUTORS" : {
+            
+            "RollIn" : [
+                        
+                        {
+                        "matrix_delayRelativeToMilestone": 2,
+                        "queue_easingType": 29
+                        }
+                        
+                        ],
+            
+            "RollOut" : [
+                         
+                         {
+                         "stepTime": 0.01
+                         
+                         , "matrix_delayRelativeToMilestone": 0
+                         , "matrix_delayRelativeToQueueIndex": 15
+                         
+                         , "queue_easingDegree": 100
+                         }
+            
+                         ]
+        },
+        
+        "CONFIG.POSITIONS" : {
+            
+            "RollIn" : {
+                
+                "LINES" : {
+                    
+                    "COPY": [[10,0],[10,1],[10,2],[10,3],[10,4],[10,5]],
+
+                    "COPY.COUNTS":   [10,11,10,11,15,20],
+                    
+                }
+            },
+            
+            "RollOut": {
+
+                "LINES" : {
+                    
+                    "COPY": [[14,0]],
+                    "COPY.COUNTS": [15],
+                    
+                },
+                
+                "INDEXPATHS": {
+                    
+                    
+                }
+            }
+            
+        }
+        
+    },
+    
+    "11": {
+        
+        "Utilities": {
+            
+            "ScheduleTask.view.interval": 30,
+            
+            
+            "replace_ScheduleTask.view.values": [
+                                         {
+                                         "startPoint": [1, 0],
+                                         "endPoint": [0, 0],
+                                         "locations":[0.25, 0.75],
+                                         "colors":[[16, 177, 24, 0.75], [193, 230, 105, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [0, 0],
+                                         "endPoint": [0, 1],
+                                         "locations":[0.5, 0.75],
+                                         "colors":[[59, 59, 52, 0.75], [84, 94, 48, 0.25]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [1, 0],
+                                         "endPoint": [0, 1],
+                                         "locations":[0.5, 0.75],
+                                         "colors":[[39, 184, 184, 0.75], [177, 16, 114, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [1, 1],
+                                         "endPoint": [0, 0],
+                                         "locations":[0.5, 0.75],
+                                         "colors":[[109, 212, 218, 0.5], [218, 109, 212, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [0, 0],
+                                         "endPoint": [1, 1],
+                                         "locations":[0.2, 0.8],
+                                         "colors":[[109, 212, 218, 0.5], [109, 218, 116, 0.75]],
+                                         },
+                                         
+                                         {
+                                         "startPoint": [0, 1],
+                                         "endPoint": [1, 1],
+                                         "locations":[0.4, 0.7],
+                                         "colors":[[16, 16, 117, 0.5], [177, 99, 16, 0.75]],
+                                         }
+                                         
+                                         
+                                         ]
+        },
+        
+        
+        "Controller_Schedule_Task" : {
+            
+            "view": {
+                
+                "backgroundView": {
+                    "~Executors" : {
+                        "1" : {
+                            "Action": "values.set",
+                            "keyPath": "layer",
+                            "stepTime": 3,
+                            "enableTransition": 1,
+                            "transitions": [10, 19],
+                            "values": {
+                                "startPoint": [0, 0],
+                                "endPoint": [0, 1],
+                                "locations":[0.4, 0.8],
+                                "colors":[[50, 55, 55, 0.75], [255, 255, 255, 0.5]],
+                            }
+                        },
+                        
+                        "2" : {
+                            "Action": "values.set",
+                            "keyPath": "image",
+                        }
+                    }
+                }
+            }
+        }
+        
+    },
+    
+    
+    "12": "5",
+    
+    "18": "7",
+    
+    "20": "5",
+    
+    "55": "11",
+    
+    "65": "8",
+    
+    "70": "9",
+    
+    "75": "8"
+    
+}

@@ -1,0 +1,1244 @@
+{
+    "__version__": 1,
+    "SqueezeEnable": 0,
+    
+    "IsDisableChainable": 0,
+    "IsDisableFilterOnRollIn": 0,
+    "ChainAdjustContinuous": 0,
+    
+    "IsVisualAreaClipsToBounds": 1,
+    "IsBackGroundParallexEnable": 1,
+    "Supported_Modes": [
+                        "Pull",
+                        "Move",
+                        "Swipe",
+                        "Route",
+                        "Touch"
+                        ],
+    
+    "ChaptersMinimalIndex": 1,
+    "ChaptersCountInFirstLaunch": 10,
+    
+    
+    "Utilities": {
+        "_ResourcesSpecificationURL": "https://raw.githubusercontent.com/suchavision/Resources/master/iRuinResources.json",
+        "ClearanceScoreBase": 300,
+        "ClearanceScoreRandom": 500
+    },
+    
+    "Controller_Schedule_Task": {
+        "background_changing": {
+            "~interval": 10,
+            "~loop": {
+                "keyPaths": [
+                             "view.backgroundView.~Executors.1.values"
+                             ],
+                "values": [
+                           [
+                            "Background_001.png",
+                            "Background_000.png"
+                            ]
+                           ]
+            },
+            "view": {
+                "backgroundView": {
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.set",
+                            "keyPath": "image",
+                            "stepTime": 3,
+                            "enableTransition": 1,
+                            "transitions": [
+                                            10,
+                                            19
+                                            ],
+                            "values": "Background_000.png"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    
+    "GAME_MUSIC": {
+        "~loop": {
+            "keyPaths": [
+                         "PlayActions.1.values",
+                         "PauseActions.1.values",
+                         "ResumeActions.1.values",
+                         "StopActions.1.values"
+                         ],
+            "values": [
+                       [
+                        "July - Somewhere.mp3",
+                        "Valentin - A Little Story.mp3",
+                        "Alan Walker - Fade.mp3",
+                        "Eddie - Late Autumn.mp3",
+                        "Robert de Boron - Chiru (Saisei no Uta).mp3",
+                        "Otokaze - 夏恋.mp3"
+                        ]
+                       ]
+        },
+        
+        "PlayActions": {
+            "1": {
+                "Action": "audio",
+                "values": "July - Somewhere.mp3",
+                "player": {
+                    "volume": 0,
+                    "fadeToVolume": 0.3,
+                    "fadeOverDuration": 3,
+                    "fadeDelay": 1.5
+                },
+                "selector": "fade"
+            }
+        },
+        "PauseActions": {
+            "1": {
+                "Action": "audio",
+                "values": "July - Somewhere.mp3",
+                "player": {
+                    "fadeDelay": 0,
+                    "fadeToVolume": 0,
+                    "fadeOverDuration": 2
+                },
+                "selector": "fade"
+            }
+        },
+        "ResumeActions": {
+            "1": {
+                "Action": "audio",
+                "values": "July - Somewhere.mp3",
+                "player": {
+                    "fadeDelay": 0,
+                    "fadeToVolume": 0.3,
+                    "fadeOverDuration": 2
+                },
+                "selector": "fade"
+            }
+        },
+        "StopActions": {
+            "1": {
+                "Action": "audio",
+                "values": "July - Somewhere.mp3",
+                "player": {
+                    "fadeDelay": 0,
+                    "fadeToVolume": 0,
+                    "fadeOverDuration": 2
+                },
+                "selector": "fadeToStop"
+            }
+        }
+    },
+    "GAME_INIT_LAUNCH": {
+        "view": {
+            "notification_panel": {
+                "~Class": "InformedView",
+                "~Frame": [-3, 0, "k_window_width_+6", 3],
+                "center": ["k_super_middle.x", "k_super_middle.y_+200"],
+                "contentView" : {
+                    "~sortedKeys": ["sizeHeight", "sizeWidth"],
+                    "layer": {
+                        "backgroundColor": 23,
+                    },
+                    "sizeHeight": 500,
+                    "sizeWidth": "k_super_width_/2",
+                    "centerX": "k_super_middle.x",
+                    
+                    "label": {
+                        "~sortedKeys": ["sizeHeight"],
+                        "text": "Hello , need to be continue ...",
+                        "sizeHeight": "k_super_height",
+                        "sizeWidth": "k_super_width"
+                    }
+                },
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "bounds.size.height",
+                        "forward": 1,
+                        "values": [1, 500],
+                        "element_totalTransitTime": 0.3
+                    },
+                    "2": {
+                        "Action_": "values.animation",
+                        "keyPath": "position",
+                        "forward": 1,
+                        "values": ["k_current_value", "k_super_middle"],
+                        "element_totalTransitTime": 1
+                    }
+                },
+                "~ExecutorsDone": {
+                    
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "bounds.size.height",
+                            "forward": 1,
+                            "values": [500, 500],
+                            "element_totalTransitTime": 2
+                        }
+                    },
+                    
+                    "~ExecutorsDone": {
+                        "~Executors": {
+                            "1": {
+                                "Action": "values.animation",
+                                "keyPath": "bounds.size.height",
+                                "forward": 1,
+                                "values": [500, 0],
+                                "element_totalTransitTime": 0.2
+                            }
+                        },
+                        "~ExecutorsDone": {
+                            "superview": {
+                                "notification_panel": {
+                                    "~Class": "nil"
+                                }
+                            },
+                            "~Executors_": {
+                                "1": {
+                                    "Action": "Invocation",
+                                    "selector": "removeFromSuperview"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "GAME_LAUNCH": {
+        "view": {
+            "backgroundView": {
+                "image": "Background_000.png"
+            },
+            "layer": {
+                "emissionLayer": {
+                    "~Class": "EmissionLayer",
+                    "emitterPosition": ["k_window_middle.x", "k_window_middle.y_+300"],
+                    "emitterSize": [50, 50],
+                    "emitterShape": "line",
+                    "emitterMode": "outline",
+                    "renderMode": "additive",
+                    
+                    "emitterCells" : {
+                        "~Class":"NSMutableArray",
+                        "0": {
+                            "~Class":"CAEmitterCell",
+                            "contents_": "fire.png",
+                            "birthRate": 0.2,
+                            "emissionRange": 0.628,
+                            "velocity": 250,
+                            "velocityRange": 100,
+                            "lifetime": 1.02,
+                            "scale": 0.2,
+                            "greenRange": 1.0,
+                            "redRange": 1.0,
+                            "blueRange": 1.0,
+                            "spinRange": 3.14,
+                            "color": [0, 0, 0, 1.0],
+                            
+                            
+                            "emitterCells" : {
+                                "~Class":"NSMutableArray",
+                                "0": {
+                                    "~Class":"CAEmitterCell",
+                                    "birthRate": 1.0,
+                                    "velocity": 0,
+                                    "scale": 2.5,
+                                    "lifetime": 0.35,
+                                    "redSpeed": -1.5,
+                                    "blueSpeed": 1.5,
+                                    "greenSpeed": 1.5,
+                                    
+                                    
+                                    "emitterCells" : {
+                                        "~Class":"NSMutableArray",
+                                        "0": {
+                                            "~Class":"CAEmitterCell",
+                                            "contents": "spark.png",
+                                            "birthRate": 50,
+                                            "velocity": 250,
+                                            "emissionRange": 6.28,
+                                            "yAcceleration": 100,
+                                            "lifetime": 3,
+                                            
+                                            "scaleSpeed": -0.2,
+                                            "greenSpeed": -0.1,
+                                            "redSpeed": 0.4,
+                                            "blueSpeed": -0.1,
+                                            "alphaSpeed": -0.25,
+                                            "alphaRange": -0.5,
+                                            "color": [0, 0, 0, 1.0],
+                                            "spin": 6.28,
+                                            "spinRange": 6.28
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "chaptersView": {
+            "lineScrollView": {
+                "layer": {
+                    "backgroundColor": [
+                                        130,
+                                        130,
+                                        130,
+                                        0
+                                        ],
+                    "masksToBounds": 0,
+                    "shadowOpacity": 1,
+                    "shadowRadius": 8,
+                    "shadowColor": 34,
+                    "shadowOffset": [
+                                     0.5,
+                                     0.5
+                                     ]
+                }
+            }
+        },
+        "gameView": {
+            "clipsToBounds": 1,
+            "containerView": {
+            },
+            "timerView": {
+                "~Text": {
+                    "FONT_NAME": "MarkerFelt-Wide",
+                    "FONT_SIZE": 70,
+                    "STROKE.Mode": 1,
+                    "STROKE.Width": 3,
+                    "STROKE.Color": [
+                                     93,
+                                     93,
+                                     93
+                                     ]
+                },
+                "textColor": [
+                              255,
+                              255,
+                              255
+                              ]
+            },
+            "vanishAmountLabel": {
+                "~Text": {
+                    "FONT_NAME": "MarkerFelt-Wide",
+                    "FONT_SIZE": 80,
+                    "STROKE.Mode": 1,
+                    "STROKE.Width": 3,
+                    "STROKE.Color": [
+                                     93,
+                                     93,
+                                     93
+                                     ]
+                },
+                "textColor": [
+                              255,
+                              255,
+                              255
+                              ],
+                "format": "%.0f"
+            },
+            "seasonLabelShimmerView": {
+                "shimmering": 1,
+                "shimmeringBeginFadeDuration": 0.3,
+                "shimmeringSpeed": 20,
+                "userInteractionEnabled": 0,
+                "layer": {
+                    "borderWidth_": 2
+                }
+            },
+            "seasonLabel": {
+                "~Text": {
+                    "FONT_NAME": "HelveticaNeue-UltraLight",
+                    "FONT_SIZE": 100,
+                    "STROKE.Mode": 1,
+                    "STROKE.Width": 1,
+                    "STROKE.Color": [
+                                     0,
+                                     0,
+                                     0
+                                     ]
+                },
+                "textColor": [
+                              255,
+                              255,
+                              255
+                              ],
+                "textAlignment": 1,
+                "layer": {
+                    "backgroundColor": 0
+                }
+            },
+            "backActionView": {
+                "n_title": "I want give up!",
+                "n_title_color": 34,
+                "h_title_color": 24,
+                "layer": {
+                    "backgroundColor": 8,
+                    "shadowOpacity": 1,
+                    "shadowRadius": 3,
+                    "shadowColor": 34,
+                    "shadowOffset": [
+                                     0.5,
+                                     0.5
+                                     ]
+                },
+                "titleLabel": {
+                    "~Text": {
+                        "FONT_NAME": "HelveticaNeue-UltraLight",
+                        "FONT_SIZE": 50
+                    }
+                }
+            },
+            "refreshActionView": {
+                "n_title": "I want to retry!",
+                "n_title_color": 34,
+                "h_title_color": 24,
+                "layer": {
+                    "backgroundColor": 8,
+                    "shadowOpacity": 1,
+                    "shadowRadius": 3,
+                    "shadowColor": 34,
+                    "shadowOffset": [
+                                     0.5,
+                                     0.5
+                                     ]
+                },
+                "titleLabel": {
+                    "~Text": {
+                        "FONT_NAME": "HelveticaNeue-UltraLight",
+                        "FONT_SIZE": 50
+                    }
+                }
+            },
+            "separator_top": {
+                "~Class": "UIView",
+                "layer": {
+                    "backgroundColor": 34
+                }
+            },
+            "separator_bottom": {
+                "~Class": "UIView",
+                "layer": {
+                    "backgroundColor": 33
+                }
+            }
+        }
+    },
+    "GAME_START": {
+        "view_": {
+            "backgroundView": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.set",
+                        "keyPath": "image",
+                        "stepTime": 1,
+                        "enableTransition": 1,
+                        "transitions": [
+                                        19,
+                                        10
+                                        ],
+                        "values": "Background_000.png"
+                    }
+                }
+            }
+        },
+        "gameView": {
+            "~Executors": {
+                "1": {
+                    "Action": "positions.move",
+                    "keyPath": "position",
+                    "forward": 1,
+                    "values": [
+                               "k_current_value",
+                               []
+                               ],
+                    "stepTime": 0.05,
+                    "matrix_delayRelativeToMilestone": 1,
+                    "element_totalTransitTime": 0.5,
+                    "queue_easingType": 14,
+                    "queue_easingDegree": 50
+                }
+            },
+            "timerView": {
+                "totalTime": 180,
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "opacity",
+                        "forward": 1,
+                        "values": [0, 1],
+                        "stepTime": 0.5,
+                        "matrix_delayRelativeToMilestone": 5,
+                        "element_totalTransitTime": 2.2,
+                        "queue_easingType": 12,
+                        "queue_easingDegree": 50,
+                        "queue_timingFunction": [
+                                                     0.5,
+                                                     0.5,
+                                                     0.2,
+                                                     1
+                                                     ]
+                    }
+                }
+            },
+            "seasonLabelShimmerView": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "opacity",
+                        "forward": 1,
+                        "values": [
+                                   0,
+                                   1
+                                   ],
+                        "stepTime": 0.5,
+                        "matrix_delayRelativeToMilestone": 5,
+                        "element_totalTransitTime": 2.2,
+                        "queue_easingType": 12,
+                        "queue_easingDegree": 50,
+                        "queue_timingFunction": [
+                                                     0.5,
+                                                     0.5,
+                                                     0.2,
+                                                     1
+                                                     ]
+                    }
+                }
+            },
+            "vanishAmountLabel": {
+                "number": "0",
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "opacity",
+                        "forward": 1,
+                        "values": [
+                                   0,
+                                   1
+                                   ],
+                        "stepTime": 0.5,
+                        "matrix_delayRelativeToMilestone": 5,
+                        "element_totalTransitTime": 2.2,
+                        "queue_easingType": 12,
+                        "queue_easingDegree": 50,
+                        "queue_timingFunction": [
+                                                     0.5,
+                                                     0.5,
+                                                     0.2,
+                                                     1
+                                                     ]
+                    }
+                }
+            }
+        },
+        "chaptersView": {
+            "musicActionView": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.set",
+                        "keyPath": "alpha",
+                        "stepTime": 0.2,
+                        "enableAction": 1,
+                        "enableTransition": 1,
+                        "transitions": [
+                                        13
+                                        ],
+                        "values": 0
+                    }
+                }
+            }
+        }
+    },
+    "GAME_BACK": {
+        "gameView": {
+            "~Executors": {
+                "1": {
+                    "Action": "positions.move",
+                    "keyPath": "position",
+                    "forward": 1,
+                    "values": [
+                               "k_current_value",
+                               []
+                               ],
+                    "stepTime": 0.5,
+                    "matrix_delayRelativeToMilestone": 5,
+                    "element_totalTransitTime": 1,
+                    "queue_easingType": 16,
+                    "queue_easingDegree": 15,
+                    "queue_timingFunction": [
+                                                 0.5,
+                                                 0.5,
+                                                 0.2,
+                                                 1
+                                                 ]
+                }
+            },
+            "timerView": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.set",
+                        "keyPath": "alpha",
+                        "stepTime": 1,
+                        "enableAction": 1,
+                        "enableTransition": 1,
+                        "transitions": [
+                                        13
+                                        ],
+                        "values": 0
+                    }
+                }
+            },
+            "seasonLabelShimmerView": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.set",
+                        "keyPath": "alpha",
+                        "stepTime": 1,
+                        "enableAction": 1,
+                        "enableTransition": 1,
+                        "transitions": [
+                                        13
+                                        ],
+                        "values": 0
+                    }
+                }
+            },
+            "vanishAmountLabel": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.set",
+                        "keyPath": "alpha",
+                        "stepTime": 1,
+                        "enableAction": 1,
+                        "enableTransition": 1,
+                        "transitions": [
+                                        13
+                                        ],
+                        "values": 0
+                    }
+                }
+            }
+        },
+        "chaptersView": {
+            "musicActionView": {
+                "~Executors": {
+                    "1": {
+                        "Action": "values.set",
+                        "keyPath": "alpha",
+                        "stepTime": 5,
+                        "enableAction": 1,
+                        "enableTransition": 1,
+                        "transitions": [
+                                        13
+                                        ],
+                        "values": 1
+                    }
+                }
+            }
+        }
+    },
+    "SYMBOLS_PORPERTIES": {
+        "~count": 4,
+        
+        "~loop": {
+            "keyPaths": [
+                         "symbolImageView.layer.backgroundColor"
+                         ],
+            "values": [
+                       [
+                        [0,0,0,1], [0,0,0,0.65], [0,0,0,0.25], [255,255,255,1]
+                        ]
+                       ]
+        },
+        
+        "symbolImageView": {
+            "layer": {
+                "cornerRadius": 5,
+                "masksToBounds": 1,
+                "borderWidth": 1
+            }
+        },
+        "~3": {
+            "symbolImageView": {
+                "layer": {
+                    "borderWidth": 2
+                }
+            }
+        },
+        "~4_": {
+            "symbolImageView": {
+                "layer": {
+                    "backgroundColor": [0,0,0,0.75],
+                    "borderWidth": 2,
+                    "startPoint": [0,0],
+                    "endPoint": [0,1],
+                    "locations": [0.5,0.75],
+                    "colors": [[255,255,255,0.75],[174,174,174,0.75]]
+                }
+            }
+        }
+    },
+    "SYMBOLS_ACTIONEXECUTORS": {
+        "RollIn": [
+                   {
+                   "Action": "positions.move",
+                   "keyPath": "position",
+                   "Animation": {
+                   "autoreverses": 0,
+                   "repeatCount": 0
+                   },
+                   "forward": 1,
+                   "transitionMode": 1,
+                   "stepTime": 0.025,
+                   "matrix_delayRelativeToMilestone": 10,
+                   "matrix_delayRelativeToQueueIndex": -15,
+                   "element_startingOffset": 3,
+                   "element_totalTransitTime_": 1.5,
+                   "queue_easingType": 16,
+                   "queue_easingDegree": 40,
+                   "queue_timingFunction_": [0.5, 0.5, 0.2, 1],
+                   "queue_keyTimesFunctions_": [0.5, 0.5, 0.2, 1]
+                   }
+                   ],
+        "RollOut": [
+                    {
+                    "Action": "positions.move",
+                    "keyPath": "position",
+                    "Animation": {
+                    "autoreverses": 0,
+                    "repeatCount": 0
+                    },
+                    "forward": 1,
+                    "transitionMode_": 2,
+                    "stepTime": 0.05,
+                    "matrix_delayRelativeToMilestone": 0,
+                    "matrix_delayRelativeToQueueIndex": 0,
+                    "element_startingOffset": 3,
+                    "element_totalTransitTime_": 0.5,
+                    "queue_easingType": 10,
+                    "queue_easingDegree": 20,
+                    "queue_timingFunction": [
+                                                 0.5,
+                                                 0.5,
+                                                 0.2,
+                                                 1
+                                                 ],
+                    "queue_keyTimesFunctions_": [0.5, 0.5, 0.2, 1]
+                    }
+                    ],
+        "Adjusts": [
+                    {
+                    "Action": "positions.move",
+                    "keyPath": "position",
+                    "forward": 1,
+                    "stepTime": 0.02,
+                    "queue_easingType": 29,
+                    "queue_easingDegree": 60,
+                    "queue_timingFunction": [
+                                                 0.5,
+                                                 0.5,
+                                                 0.2,
+                                                 1
+                                                 ]
+                    }
+                    ],
+        "FillIn": [
+                   {
+                   "Action": "positions.move",
+                   "keyPath": "position",
+                   "forward": 1,
+                   "stepTime": 0.02,
+                   "queue_easingType": 0,
+                   "queue_easingDegree": 10,
+                   "queue_timingFunction": [
+                                                0.5,
+                                                0.5,
+                                                0.2,
+                                                1
+                                                ]
+                   }
+                   ],
+        "Squeeze.Adjust": [
+                           {
+                           "Action": "positions.move",
+                           "keyPath": "position",
+                           "Animation": {
+                           "autoreverses": 0,
+                           "repeatCount": 0
+                           },
+                           "forward": 1,
+                           "transitionMode_": 2,
+                           "stepTime": 0.25,
+                           "matrix_delayRelativeToMilestone": 0,
+                           "matrix_delayRelativeToQueueIndex": 0,
+                           "element_startingOffset_": 1,
+                           "element_totalTransitTime_": 0.5,
+                           "queue_easingType_": 16,
+                           "queue_easingDegree": 15,
+                           "queue_timingFunction": [
+                                                        0.5,
+                                                        0.5,
+                                                        0.2,
+                                                        1
+                                                        ],
+                           "queue_keyTimesFunctions_": [0.5, 0.5, 0.2, 1]
+                           }
+                           ],
+        "Squeeze.FillIn": [
+                           {
+                           "Action": "positions.move",
+                           "keyPath": "position",
+                           "Animation": {
+                           "autoreverses": 0,
+                           "repeatCount": 0
+                           },
+                           "forward": 1,
+                           "transitionMode_": 2,
+                           "stepTime": 0.25,
+                           "matrix_delayRelativeToMilestone": 0,
+                           "matrix_delayRelativeToQueueIndex": 0,
+                           "element_startingOffset_": 1,
+                           "element_totalTransitTime_": 0.5,
+                           "queue_easingType_": 16,
+                           "queue_easingDegree": 15,
+                           "queue_timingFunction": [
+                                                        0.5,
+                                                        0.5,
+                                                        0.2,
+                                                        1
+                                                        ],
+                           "queue_keyTimesFunctions_": [0.5, 0.5, 0.2, 1]
+                           }
+                           ],
+        "Vanish": [
+                   {
+                   "Action": "values.animation",
+                   "keyPath": "transform.scale",
+                   "Animation": {
+                        "removedOnCompletion": 0,
+                        "fillMode": "forwards"
+                   },
+                   "values": [
+                              1,
+                              0
+                              ],
+                   "transitionMode": -1,
+                   "matrix_delayRelativeToQueueIndex": 5,
+                   "element_totalTransitTime": 0.2
+                   },
+                   {
+                   "Action": "audio",
+                   "values": "Tock.caf",
+                   "isSystemSound": 1,
+                   "matrix_delayRelativeToQueueIndex": 5
+                   }
+                   ],
+        "TouchesBegan": {
+            "Tink_Audio": {
+                "Action": "audio",
+                "values": "Tink.caf",
+                "isSystemSound": 1
+            }
+        },
+        "TouchesMoved": {
+            "Tink_Audio": {
+                "Action": "audio",
+                "values": "Tink.caf",
+                "isSystemSound": 1
+            }
+        }
+    },
+    "Chapters_Cells_In_Touch_Rolling": {
+        "~loop": {
+            "keyPaths": [
+                         "imageView.image"
+                         ],
+            "values": [
+                       [
+                        "0.png",
+                        "1.png",
+                        "2.png",
+                        "3.png"
+                        ]
+                       ]
+        },
+        "imageView": {
+            "image": "0.png"
+        },
+        "label": {
+            "~Text": {
+                "FONT_NAME": "MarkerFelt-Thin",
+                "FONT_SIZE": 100
+            },
+            "~Executors": {
+                "1": {
+                    "Action": "audio",
+                    "values": "Bottle.aiff",
+                    "isSystemSound": 1
+                }
+            },
+            "textColor": [
+                          255,
+                          255,
+                          255
+                          ]
+        }
+    },
+    "Chapters_Cells_In_Game_Enter": {
+        "~2": {
+            "~Executors": {
+                "1": {
+                    "matrix_delayRelativeToMilestone": 10
+                }
+            }
+        },
+        "~3": {
+            "~Executors": {
+                "1": {
+                    "queue_easingDegree": 50,
+                    "replace_queue_timingFunction": [0.5,0.3,0.2,1]
+                }
+            }
+        },
+        "~4": {
+            "~Executors": {
+                "1": {
+                    "element_totalTransitTime": 0.5
+                }
+            }
+        },
+        
+        "~loop": {
+            "keyPaths": [
+                         "~Executors.1.queue_easingType"
+                         ],
+            "values": [
+                        [17,29,12,29,0]
+                       ]
+        },
+        
+        "~Executors": {
+            "1": {
+                "Action": "positions.move",
+                "keyPath": "position",
+                "forward": 1,
+                "values": [
+                           ["k_current_value.x", "k_current_value.y_*-5"],
+                           "k_current_value"
+                           ],
+                "stepTime": 0.05,
+                "matrix_delayRelativeToMilestone": 0,
+                "element_totalTransitTime": 2.2,
+                "queue_easingType": 12,
+                "queue_easingDegree": 30,
+                "queue_timingFunction": [
+                                         0.5,
+                                         0.5,
+                                         0.2,
+                                         1
+                                         ]
+            }
+        }
+        
+    },
+    "Chapters_Cells_In_Game_Start": {
+        "~1": {
+            "~Executors": {
+                "1": {
+                    "queue_easingType": 29
+                }
+            }
+        },
+        "~3": {
+            "~Executors": {
+                "1": {
+                    "queue_easingType": 29,
+                    "queue_easingDegree": 50,
+                    "queue_timingFunction": [0.5,0.5,0.2,1]
+                }
+            }
+        },
+        
+        "~loop": {
+            "keyPaths": [
+                         "~Executors.1.matrix_delayRelativeToMilestone",
+                         "~Executors.2.matrix_delayRelativeToMilestone"
+                         ],
+            "values": [
+                       [10,30,30,15,30],
+                       [0, 3, 0, 1, 1]
+                       ]
+        },
+        
+        "~Executors": {
+            "1": {
+                "Action": "positions.move",
+                "keyPath": "position",
+                "values": [
+                           "k_current_value",
+                           ["k_current_value.x", "k_current_value.y_*10"],
+                           ],
+                "stepTime": 0.05,
+                "matrix_delayRelativeToMilestone": 0,
+                "element_totalTransitTime": 2,
+                "queue_easingType": 12,
+                "queue_easingDegree": 25,
+                "queue_timingFunction": [
+                                         0.5,
+                                         0.5,
+                                         0.2,
+                                         1
+                                         ]
+            },
+            "2": {
+                "Action": "values.animation",
+                "keyPath": "opacity",
+                "Animation": {
+                    "removedOnCompletion": 0,
+                    "fillMode": "forwards"
+                },
+                "values": [
+                           1,
+                           0
+                           ],
+                "stepTime": 0.5,
+                "element_totalTransitTime": 2.2,
+                "queue_easingType": 12,
+                "queue_easingDegree": 30
+            }
+        }
+        
+    },
+    "Chapters_Cells_In_Game_Back": {
+        "~3": {
+            "~Executors": {
+                "1": {
+                    "queue_easingType": 29,
+                    "queue_easingDegree": 30,
+                    "queue_timingFunction": [0.1, 0.9, 0.2, 1]
+                }
+            }
+        },
+        
+        "~loop": {
+            "keyPaths": [
+                         "~Executors.1.matrix_delayRelativeToMilestone"
+                         ],
+            "values": [
+                        [5, 10, 30, 20, 30]
+                       ]
+        },
+        
+        "~Executors": {
+            "1": {
+                "Action": "positions.move",
+                "keyPath": "position",
+                "forward": 1,
+                "values": [
+                           ["k_current_value.x", "k_current_value.y_*-5"],
+                           "k_current_value"
+                           ],
+                "stepTime": 0.05,
+                "matrix_delayRelativeToMilestone": 0,
+                "element_totalTransitTime": 2.2,
+                "queue_easingType": 12,
+                "queue_easingDegree": 30,
+                "queue_timingFunction": [0.5,0.5,0.2,1]
+            },
+            "2": {
+                "Action": "Invocation",
+                "object": "layer",
+                "selector": "removeAnimationForKey:",
+                "values": ["opacity"]
+            }
+        }
+        
+    },
+    "Chapter_Cell_In_Touch_Began": {
+        "~Executors": {
+            "2": {
+                "Action": "values.animation",
+                "keyPath": "opacity",
+                "values": [
+                           1,
+                           0.5,
+                           1
+                           ],
+                "stepTime": 0.5
+            }
+        }
+    },
+    "Chapter_Cell_In_Touch_Ended": {
+        "~Executors": {
+            "3": {
+                "Action": "values.animation",
+                "keyPath": "transform.scale",
+                "values": [
+                           1,
+                           0.5,
+                           1
+                           ],
+                "stepTime": 0.1
+            },
+            "4": {
+                "Action": "audio",
+                "values": "sand.wav",
+                "matrix_delayRelativeToMilestone": 10
+            }
+        }
+    },
+    
+    "Continuous_Vanish": {
+        
+        "ChainVanishing": {
+            "gameView": {
+                "maskEffectView": {
+                    "~Class": "IRImageView",
+                    
+                    "image": "mask.png",
+                    "center": "k_super_middle",
+                    
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "transform.scale",
+                            "Animation": {
+                                "removedOnCompletion": 0,
+                                "fillMode": "forwards"
+                            },
+                            "values": [
+                                       2,
+                                       4
+                                       ],
+                            "element_totalTransitTime": 1,
+                            "queue_easingType": 20,
+                            "queue_easingDegree": 40,
+                            "queue_timingFunction_": [
+                                                          0.5,
+                                                          0.5,
+                                                          0.2,
+                                                          1
+                                                          ]
+                        },
+                        "2": {
+                            "Action": "values.animation",
+                            "keyPath": "opacity",
+                            "forward": 1,
+                            "values": [
+                                       1,
+                                       0
+                                       ],
+                            "element_totalTransitTime": 1.5
+                        }
+                    },
+                    
+                    "~ExecutorsDone_": {
+                        "1": {
+                            "Action": "Invocation",
+                            "selector": "removeFromSuperview"
+                        }
+                    }
+                }
+            },
+            "~3": {
+                "view": {
+                    "layer": {
+                        "chainingEmissionLayer": {
+                            "~Class": "EmissionLayer",
+                            "emitterPosition": "k_window_middle",
+                            "emitterSize": [300, 300],
+                            "emitterMode": "outline",
+                            "emitterShape": "circle",
+                            "renderMode": "backToFront",
+                            
+                            "emitterCells": {
+                                "~Class":"NSMutableArray",
+                                "0": {
+                                    "~Class":"CAEmitterCell",
+                                    "name": "triangle",
+                                    "birthRate": 100,
+                                    "velocity": 60,
+                                    "scale": 0.5,
+                                    "scaleSpeed": -0.2,
+                                    "greenSpeed": -0.2,
+                                    "redSpeed": -0.5,
+                                    "blueSpeed": -0.5,
+                                    "lifetime": 1.5,
+                                    "contents": "triangle.png",
+                                    "color": [1, 1, 1, 1],
+                                    
+                                    "emitterCells": {
+                                        "~Class":"NSMutableArray",
+                                        "0_": {
+                                            "~Class":"CAEmitterCell",
+                                            "birthRate": 10,
+                                            "emissionLongitude": 1.57,
+                                            "velocity": 100,
+                                            "scale": 0.5,
+                                            "scaleSpeed": -0.2,
+                                            "greenSpeed": -0.1,
+                                            "redSpeed": -0.2,
+                                            "blueSpeed": 0.1,
+                                            "alphaSpeed": -0.2,
+                                            "lifetime": 1,
+                                            "contents": "circle.png",
+                                            "color": [1, 1, 1, 1]
+                                        },
+                                        "1": {
+                                            "~Class":"CAEmitterCell",
+                                            "birthRate": 10,
+                                            "velocity": 150,
+                                            "zAcceleration": -1,
+                                            "emissionLongitude": -3.14,
+                                            "scale": 0.5,
+                                            "scaleSpeed": -0.2,
+                                            "greenSpeed": -0.1,
+                                            "redSpeed": 0.4,
+                                            "blueSpeed": -0.1,
+                                            "alphaSpeed": -0.2,
+                                            "lifetime": 2,
+                                            "contents": "star.png",
+                                            "color": [1, 1, 1, 1]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        
+        "ChainVanishing_Stop": {
+            "view": {
+                "layer": {
+                    "chainingEmissionLayer": {
+                        "~Executors": {
+                            "1": {
+                                "Action": "values.animation",
+                                "keyPath": "emitterCells.triangle.birthRate",
+                                "forward": 1,
+                                "values": ["k_current_value", 0],
+                                "element_totalTransitTime": 0.5
+                            }
+                        },
+                        
+                        "~ExecutorsDone_": {
+                            "superlayer": {
+                                "chainingEmissionLayer": {
+                                    "~Class": "nil"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

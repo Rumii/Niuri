@@ -1,0 +1,113 @@
+{    
+    "SYMBOLS_PORPERTIES" : {
+        "IDENTIFICAIONTS": [
+                            {}, {}, {}, {}, {}, {},
+                            
+                            {
+                            "symbolImageView": {
+                            "layer": {
+                            "backgroundColor": [0, 138, 13, 0.65],
+                            }
+                            },
+                            
+                            "layer_": {
+                            "masksToBounds": 0,
+                            "shadowOpacity": 1.0,
+                            "shadowRadius": 8.0,
+                            "shadowColor": 34,
+                            "shadowOffset": [0.5, 0.5]
+                            }
+                            
+                            },
+                            
+                            {
+                            "symbolImageView": {
+                            "layer": {
+                            "backgroundColor": [192, 39, 30, 0.75],
+                            }
+                            }
+                            },
+                            
+                            {
+                            "symbolImageView": {
+                            "layer": {
+                            "backgroundColor": [93, 193, 243, 0.5],
+                            }
+                            }
+                            },
+                            
+                            {
+                            "symbolImageView": {
+                            "layer": {
+                            "backgroundColor": [145, 60, 160, 0.75],
+                            }
+                            }
+                            },
+                            
+                            {
+                            "symbolImageView": {
+                            "layer": {
+                            "backgroundColor": [119, 43, 167, 0.9],
+                            }
+                            }
+                            }
+                            
+        
+                            ]
+    },
+    
+    "SYMBOLS_ACTIONEXECUTORS" : {
+        
+        "Vanish": [
+                   
+                   {
+                   "Action": "tiles.explode",
+                   "keyPath": "position",
+                   "Animation": {
+                       "repeatCount": 0,
+                       "repeatDuration_": 1,
+                       "autoreverses_": 1,
+                       "removedOnCompletion": 0,
+                       "fillMode": "forwards"
+                   },
+                   
+                   "replace_values": [1, 0.1],
+                   "transitionMode": -1,
+                   "replace_matrix_delayRelativeToQueueIndex": 2,
+                   "replace_element_totalTransitTime": 0.15,
+                   "stepTime": 0.5,
+                   
+                   
+                   "cover.layer": {
+                   
+                   "backgroundColor" : [62, 229, 29, 0.5]
+                   
+                   },
+                   
+                   
+                   "cover.tiles": {
+                   
+                   "row" : 3,
+                   "column" : 3,
+                   
+                   "tiles.layer": {
+                   "cornerRadius" : 10.0,
+                   "masksToBounds": 1
+                   },
+                   
+                   }
+                   
+                   }
+                   
+                   ],
+        
+        
+        "delete_TouchesMoved": ""
+        
+        
+        
+    }
+    
+    
+    
+}

@@ -1,0 +1,36 @@
+{
+    
+    
+    "Swipe_First_ActionExecutors": [
+                                    
+                                    {
+                                    "Action": "positions.move"
+                                    , "keyPath": "position"
+                                    , "forward": 1
+                                    , "stepTime": 0.25
+                                    
+                                    , "element_startingOffset" : 3
+                                    , "queue_timingFunction": [0.5, 0.5, 0.2, 1.0]
+                                    }
+                                    
+                                    
+                                    ],
+    
+    "Swipe_Second_ActionExecutors": [
+                                     
+                                     {
+                                     "Action": "positions.move"
+                                     , "keyPath": "position"
+                                     , "forward": 1
+                                     , "stepTime": 0.25
+                                     
+                                     , "element_startingOffset" : 3
+                                     , "queue_timingFunction": [0.5, 0.5, 0.2, 1.0]
+                                     }
+                                     
+                                     
+                                     ]
+    
+    
+    
+}

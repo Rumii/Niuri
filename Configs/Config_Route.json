@@ -1,0 +1,25 @@
+{
+    
+    
+    "isDisableChainable_" : 1,
+    
+    
+    "isDisableFilterOnRollIn_" : 1,
+    
+    
+    "SYMBOLS_ACTIONEXECUTORS" : {
+        
+        "Vanish": [
+                   
+                   {
+                   "replace_matrix_delayRelativeToQueueIndex": 2,
+                   }
+                   
+                   ]
+        
+    }
+    
+    
+    
+}
+

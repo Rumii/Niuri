@@ -1,10 +1,12 @@
 {
     "__version__": 1,
-    "SqueezeEnable": 0,
+    "_ResourcesSpecificationURL": "https://raw.githubusercontent.com/suchavision/Resources/master/iRuinResources.json",
     
+    
+    "SqueezeEnable": 0,
     "IsDisableChainable": 0,
     "IsDisableFilterOnRollIn": 0,
-    "ChainAdjustContinuous": 0,
+    "StartAdjustChainContinuous": 0,
     
     "IsVisualAreaClipsToBounds": 1,
     "IsBackGroundParallexEnable": 1,
@@ -18,13 +20,6 @@
     
     "ChaptersMinimalIndex": 1,
     "ChaptersCountInFirstLaunch": 10,
-    
-    
-    "Utilities": {
-        "_ResourcesSpecificationURL": "https://raw.githubusercontent.com/suchavision/Resources/master/iRuinResources.json",
-        "ClearanceScoreBase": 300,
-        "ClearanceScoreRandom": 500
-    },
     
     "Controller_Schedule_Task": {
         "background_changing": {
@@ -147,7 +142,7 @@
                     
                     "label": {
                         "~sortedKeys": ["sizeHeight"],
-                        "text": "Hello , need to be continue ...",
+                        "text": "AHa. It's your first time to play this game, have fun :)",
                         "sizeHeight": "k_super_height",
                         "sizeWidth": "k_super_width"
                     }
@@ -324,7 +319,7 @@
                               255
                               ]
             },
-            "vanishAmountLabel": {
+            "vanishViewsAmountLabel": {
                 "~Text": {
                     "FONT_NAME": "MarkerFelt-Wide",
                     "FONT_SIZE": 80,
@@ -431,6 +426,8 @@
         }
     },
     "GAME_START": {
+        "~loop": {
+        },
         "view_": {
             "backgroundView": {
                 "~Executors": {
@@ -511,7 +508,7 @@
                     }
                 }
             },
-            "vanishAmountLabel": {
+            "vanishViewsAmountLabel": {
                 "number": "0",
                 "~Executors": {
                     "1": {
@@ -609,7 +606,7 @@
                     }
                 }
             },
-            "vanishAmountLabel": {
+            "vanishViewsAmountLabel": {
                 "~Executors": {
                     "1": {
                         "Action": "values.set",
@@ -1240,5 +1237,251 @@
                 }
             }
         }
+    },
+    
+    "WIN_LOSE_CONDITION": {
+        "~loop": {
+        },
+        "clearedContinuous": 3,
+        "clearedVanishedCount_": 30,
+        "clearedVanishedViewCount_": 200
+    },
+    "WIN_LOSE_PROMPT": {
+        "~loop": {
+        },
+        "view": {
+            "notification_panel": {
+                "~Class": "InformedView",
+                "~Frame": [-3, 0, "k_window_width_+6", 3],
+                "center": ["k_super_middle.x", "k_super_middle.y"],
+                "contentView" : {
+                    "~sortedKeys": ["sizeHeight", "sizeWidth"],
+                    "layer": {
+                        "backgroundColor": 23,
+                    },
+                    "sizeHeight": 500,
+                    "sizeWidth": "k_super_width_/2",
+                    "centerX": "k_super_middle.x",
+                    
+                    "label": {
+                        "~sortedKeys": ["sizeHeight"],
+                        "text": "Vanished Continuous Count Should Be 3!!! Good Luck :)",
+                        "sizeHeight": "k_super_height",
+                        "sizeWidth": "k_super_width"
+                    }
+                },
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "bounds.size.height",
+                        "forward": 1,
+                        "values": [1, 500],
+                        "element_totalTransitTime": 0.3
+                    },
+                    "2": {
+                        "Action_": "values.animation",
+                        "keyPath": "position",
+                        "forward": 1,
+                        "values": ["k_current_value", "k_super_middle"],
+                        "element_totalTransitTime": 1
+                    }
+                },
+                "~ExecutorsDone": {
+                    
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "bounds.size.height",
+                            "forward": 1,
+                            "values": [500, 500],
+                            "element_totalTransitTime": 2
+                        }
+                    },
+                    
+                    "~ExecutorsDone": {
+                        "~Executors": {
+                            "1": {
+                                "Action": "values.animation",
+                                "keyPath": "bounds.size.height",
+                                "forward": 1,
+                                "values": [500, 0],
+                                "element_totalTransitTime": 0.2
+                            }
+                        },
+                        "~ExecutorsDone": {
+                            "superview": {
+                                "notification_panel": {
+                                    "~Class": "nil"
+                                }
+                            },
+                            "~Executors_": {
+                                "1": {
+                                    "Action": "Invocation",
+                                    "selector": "removeFromSuperview"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "WIN": {
+        "view": {
+            "notification_panel": {
+                "~Class": "InformedView",
+                "~Frame": [-3, 0, "k_window_width_+6", 3],
+                "center": ["k_super_middle.x", "k_super_middle.y"],
+                "contentView" : {
+                    "~sortedKeys": ["sizeHeight", "sizeWidth"],
+                    "layer": {
+                        "backgroundColor": 23,
+                    },
+                    "sizeHeight": 500,
+                    "sizeWidth": "k_super_width_/2",
+                    "centerX": "k_super_middle.x",
+                    
+                    "label": {
+                        "~sortedKeys": ["sizeHeight"],
+                        "text": "You win! New season unlock!!!",
+                        "sizeHeight": "k_super_height",
+                        "sizeWidth": "k_super_width"
+                    }
+                },
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "bounds.size.height",
+                        "forward": 1,
+                        "values": [1, 500],
+                        "element_totalTransitTime": 0.3
+                    },
+                    "2": {
+                        "Action_": "values.animation",
+                        "keyPath": "position",
+                        "forward": 1,
+                        "values": ["k_current_value", "k_super_middle"],
+                        "element_totalTransitTime": 1
+                    }
+                },
+                "~ExecutorsDone": {
+                    
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "bounds.size.height",
+                            "forward": 1,
+                            "values": [500, 500],
+                            "element_totalTransitTime": 2
+                        }
+                    },
+                    
+                    "~ExecutorsDone": {
+                        "~Executors": {
+                            "1": {
+                                "Action": "values.animation",
+                                "keyPath": "bounds.size.height",
+                                "forward": 1,
+                                "values": [500, 0],
+                                "element_totalTransitTime": 0.2
+                            }
+                        },
+                        "~ExecutorsDone": {
+                            "superview": {
+                                "notification_panel": {
+                                    "~Class": "nil"
+                                }
+                            },
+                            "~Executors_": {
+                                "1": {
+                                    "Action": "Invocation",
+                                    "selector": "removeFromSuperview"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "LOSE": {
+        "view": {
+            "notification_panel": {
+                "~Class": "InformedView",
+                "~Frame": [-3, 0, "k_window_width_+6", 3],
+                "center": ["k_super_middle.x", "k_super_middle.y"],
+                "contentView" : {
+                    "~sortedKeys": ["sizeHeight", "sizeWidth"],
+                    "layer": {
+                        "backgroundColor": 23,
+                    },
+                    "sizeHeight": 500,
+                    "sizeWidth": "k_super_width_/2",
+                    "centerX": "k_super_middle.x",
+                    
+                    "label": {
+                        "~sortedKeys": ["sizeHeight"],
+                        "text": "Sorry times out! You lose the game :(",
+                        "sizeHeight": "k_super_height",
+                        "sizeWidth": "k_super_width"
+                    }
+                },
+                "~Executors": {
+                    "1": {
+                        "Action": "values.animation",
+                        "keyPath": "bounds.size.height",
+                        "forward": 1,
+                        "values": [1, 500],
+                        "element_totalTransitTime": 0.3
+                    },
+                    "2": {
+                        "Action_": "values.animation",
+                        "keyPath": "position",
+                        "forward": 1,
+                        "values": ["k_current_value", "k_super_middle"],
+                        "element_totalTransitTime": 1
+                    }
+                },
+                "~ExecutorsDone": {
+                    
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "bounds.size.height",
+                            "forward": 1,
+                            "values": [500, 500],
+                            "element_totalTransitTime": 2
+                        }
+                    },
+                    
+                    "~ExecutorsDone": {
+                        "~Executors": {
+                            "1": {
+                                "Action": "values.animation",
+                                "keyPath": "bounds.size.height",
+                                "forward": 1,
+                                "values": [500, 0],
+                                "element_totalTransitTime": 0.2
+                            }
+                        },
+                        "~ExecutorsDone": {
+                            "superview": {
+                                "notification_panel": {
+                                    "~Class": "nil"
+                                }
+                            },
+                            "~Executors_": {
+                                "1": {
+                                    "Action": "Invocation",
+                                    "selector": "removeFromSuperview"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+    
+    
 }

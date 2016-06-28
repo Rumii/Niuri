@@ -39,7 +39,7 @@
                 },
             },
             
-            "vanishAmountLabel": {
+            "vanishViewsAmountLabel": {
                 "~Frame": [1165, 5, 300, 140],
                 "layer": {
                     "borderWidth_": 1,

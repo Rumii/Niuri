@@ -61,11 +61,18 @@
             
             
             "backActionView": {
-                "~Frame": [55, 2500, 550, 100],
+                "~Frame": [55, 2500, 350, 100],
             },
                         
             "refreshActionView": {
-                "~Frame": [895, 2500, 550, 100],
+                "~Frame": [1095, 2500, 350, 100],
+            },
+            
+            "bonusView": {
+                "~Frame": [650, 2460, 200, 200],
+                "label": {
+                    "~Frame": [0, 0, 100, 100]
+                }
             },
             
             "separator_top": {

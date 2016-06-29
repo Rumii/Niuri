@@ -411,6 +411,21 @@
                     }
                 }
             },
+            "bonusView": {
+                "image": "mask.png",
+                "label": {
+                    "center": "k_super_middle",
+                    "~Text": {
+                        "FONT_NAME": "GeezaPro-Bold",
+                        "FONT_SIZE": 50,
+                        "STROKE.Mode": 0,
+                        "STROKE.Width": 10,
+                        "STROKE.Color": [93,93,93]
+                    },
+                    "textColor": [255,255,255],
+                    "format": "%.0f"
+                }
+            },
             "separator_top": {
                 "~Class": "UIView",
                 "layer": {
@@ -1239,16 +1254,41 @@
         }
     },
     
-    "WIN_LOSE_CONDITION": {
-        "~loop": {
+    "Caculate_Continuous": {
+        "~Text": {
+            "FONT_NAME": "GeezaPro-Bold",
+            "FONT_SIZE": 80,
+            "STROKE.Mode": 1,
+            "STROKE.Width": 3,
+            "STROKE.Color": [93,93,93]
         },
-        "clearedContinuous": 3,
+        "textColor": [255,255,255],
+        
+        "format": "%.0f",
+        
+        "~Executors": {
+            "1": {
+                "Action": "values.animation",
+                "keyPath": "transform.scale",
+                "values": [0, 5],
+                "element_totalTransitTime": 0.5
+            },
+            "2": {
+                "Action": "values.animation",
+                "keyPath": "opacity",
+                "forward": 1,
+                "values": [1, 0],
+                "element_totalTransitTime": 0.4
+            }
+        }
+    },
+    
+    "WIN_LOSE_CONDITION": {
+        "clearedContinuous": 5,
         "clearedVanishedCount_": 30,
         "clearedVanishedViewCount_": 200
     },
     "WIN_LOSE_PROMPT": {
-        "~loop": {
-        },
         "view": {
             "notification_panel": {
                 "~Class": "InformedView",
@@ -1265,7 +1305,7 @@
                     
                     "label": {
                         "~sortedKeys": ["sizeHeight"],
-                        "text": "Vanished Continuous Count Should Be 3!!! Good Luck :)",
+                        "text": "Vanished Continuous Count Should Be 5!!! Good Luck :)",
                         "sizeHeight": "k_super_height",
                         "sizeWidth": "k_super_width"
                     }

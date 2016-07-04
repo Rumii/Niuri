@@ -6,6 +6,8 @@
     "SqueezeEnable": 0,
     "IsDisableChainable": 0,
     "IsDisableFilterOnRollIn": 0,
+    
+    "StartBonusChainingCount": 3,
     "StartAdjustChainContinuous": 0,
     
     "IsVisualAreaClipsToBounds": 1,
@@ -223,6 +225,7 @@
                             "~Class":"CAEmitterCell",
                             "contents_": "fire.png",
                             "birthRate": 0.2,
+                            "name": "fire",
                             "emissionRange": 0.628,
                             "velocity": 250,
                             "velocityRange": 100,
@@ -443,8 +446,21 @@
     "GAME_START": {
         "~loop": {
         },
-        "view_": {
-            "backgroundView": {
+        "view": {
+            "layer": {
+                "emissionLayer": {
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "emitterCells.fire.birthRate",
+                            "forward": 1,
+                            "values": ["k_current_value", 0],
+                            "element_totalTransitTime": 0.5
+                        }
+                    }
+                }
+            },
+            "backgroundView_": {
                 "~Executors": {
                     "1": {
                         "Action": "values.set",
@@ -568,6 +584,21 @@
         }
     },
     "GAME_BACK": {
+        "view": {
+            "layer": {
+                "emissionLayer": {
+                    "~Executors": {
+                        "1": {
+                            "Action": "values.animation",
+                            "keyPath": "emitterCells.fire.birthRate",
+                            "forward": 1,
+                            "values": ["k_current_value", 0.2],
+                            "element_totalTransitTime": 0.5
+                        }
+                    }
+                }
+            }
+        },
         "gameView": {
             "~Executors": {
                 "1": {
@@ -686,12 +717,12 @@
         "~4_": {
             "symbolImageView": {
                 "layer": {
-                    "backgroundColor": [0,0,0,0.75],
+                    "backgroundColor": [0, 0, 0, 0],
                     "borderWidth": 2,
-                    "startPoint": [0,0],
-                    "endPoint": [0,1],
-                    "locations": [0.5,0.75],
-                    "colors": [[255,255,255,0.75],[174,174,174,0.75]]
+                    "startPoint": [0, 0],
+                    "endPoint": [1, 1],
+                    "locations": [0.25, 0.5, 0.75],
+                    "colors": [[255, 255, 255, 0.75], [174, 174, 174, 0.75], [255, 255, 255, 0.75]]
                 }
             }
         }
@@ -1105,6 +1136,27 @@
             }
         }
     },
+    "Chapter_Cell_In_The_Last": {
+        "maskLayer": {
+            "colors": [[255, 255, 255, 0], [255, 255, 255, 1], [255, 255, 255, 1], [255, 255, 255, 0]],
+            "locations": [0, 0, 1, 1],
+            "~Executors": {
+                "1": {
+                    "Action": "values.animation",
+                    "keyPath": "locations",
+                    "Animation": {
+                        "repeatCount": -1
+                    },
+                    "element_totalTransitTime": 2.2,
+                    "colors": [[255, 255, 255, 0], [255, 255, 255, 1], [255, 255, 255, 1], [255, 255, 255, 0]],
+                    "values": [
+                               [0, 0, 1, 1], [0, 0.2, 1, 1], [0, 0.4, 1, 1], [0, 0.6, 1, 1], [0, 0.8, 1, 1], [0, 1, 1, 1],
+                               [0, 1, 1, 1], [0, 0.8, 1, 1], [0, 0.6, 1, 1], [0, 0.4, 1, 1], [0, 0.2, 1, 1], [0, 0, 1, 1]
+                               ]
+                }
+            }
+        }
+    },
     
     "Continuous_Vanish": {
         
@@ -1299,13 +1351,13 @@
                     "layer": {
                         "backgroundColor": 23,
                     },
-                    "sizeHeight": 500,
-                    "sizeWidth": "k_super_width_/2",
+                    "sizeHeight": 200,
+                    "sizeWidth": "k_super_width_-300",
                     "centerX": "k_super_middle.x",
                     
                     "label": {
                         "~sortedKeys": ["sizeHeight"],
-                        "text": "Vanished Continuous Count Should Be 5!!! Good Luck :)",
+                        "text": "Continuous 5 & Good Luck :)",
                         "sizeHeight": "k_super_height",
                         "sizeWidth": "k_super_width"
                     }
@@ -1315,7 +1367,7 @@
                         "Action": "values.animation",
                         "keyPath": "bounds.size.height",
                         "forward": 1,
-                        "values": [1, 500],
+                        "values": [1, 200],
                         "element_totalTransitTime": 0.3
                     },
                     "2": {
@@ -1333,8 +1385,8 @@
                             "Action": "values.animation",
                             "keyPath": "bounds.size.height",
                             "forward": 1,
-                            "values": [500, 500],
-                            "element_totalTransitTime": 2
+                            "values": [200, 200],
+                            "element_totalTransitTime": 1
                         }
                     },
                     
@@ -1344,7 +1396,7 @@
                                 "Action": "values.animation",
                                 "keyPath": "bounds.size.height",
                                 "forward": 1,
-                                "values": [500, 0],
+                                "values": [200, 0],
                                 "element_totalTransitTime": 0.2
                             }
                         },
@@ -1377,7 +1429,7 @@
                     "layer": {
                         "backgroundColor": 23,
                     },
-                    "sizeHeight": 500,
+                    "sizeHeight": 200,
                     "sizeWidth": "k_super_width_/2",
                     "centerX": "k_super_middle.x",
                     
@@ -1393,7 +1445,7 @@
                         "Action": "values.animation",
                         "keyPath": "bounds.size.height",
                         "forward": 1,
-                        "values": [1, 500],
+                        "values": [1, 200],
                         "element_totalTransitTime": 0.3
                     },
                     "2": {
@@ -1411,7 +1463,7 @@
                             "Action": "values.animation",
                             "keyPath": "bounds.size.height",
                             "forward": 1,
-                            "values": [500, 500],
+                            "values": [200, 200],
                             "element_totalTransitTime": 2
                         }
                     },
@@ -1422,7 +1474,7 @@
                                 "Action": "values.animation",
                                 "keyPath": "bounds.size.height",
                                 "forward": 1,
-                                "values": [500, 0],
+                                "values": [200, 0],
                                 "element_totalTransitTime": 0.2
                             }
                         },

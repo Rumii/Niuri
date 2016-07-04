@@ -15,6 +15,7 @@
             "lineScrollView": {
                 "~Frame": [-3, 800, 1542, 500],
                 "eachCellWidth" : 500,
+                "eachCellHeight": 500
             },
             
             "musicActionView": {
@@ -26,9 +27,6 @@
         
         "gameView" : {
             "~Frame": [0, 3000, 1536, 2048],
-            "layer": {
-                "borderWidth_": 1,
-            },
             
             "backgroundView": {
                 "~Frame": [0, 0, 2048, 2048]
@@ -63,14 +61,27 @@
             
             
             "backActionView": {
-                "~Frame": [271.5, 1850, 150, 150],
+                "~Frame": [60, 1850, 350, 100],
             },
             
             "refreshActionView": {
-                "~Frame": [1114.5, 1850, 150, 150],
+                "~Frame": [1126, 1850, 350, 100],
+            },
+            
+            "bonusView": {
+                "~Frame": [650, 1800, 200, 200],
+                "label": {
+                    "~Frame": [0, 0, 100, 100]
+                }
+            },
+            
+            "separator_top": {
+                "~Frame": [0, 150, 1500, 2],
+            },
+            
+            "separator_bottom": {
+                "~Frame": [0, 1800, 1500, 2],
             }
-            
-            
         }
     },
     

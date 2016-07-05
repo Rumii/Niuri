@@ -1,6 +1,7 @@
 {
     "__version__": 1,
-    "_ResourcesSpecificationURL": "https://raw.githubusercontent.com/suchavision/Resources/master/iRuinResources.json",
+    "__specification__": "https://raw.githubusercontent.com/Rumii/Secruoser/master/iRuinResources.json",
+    "__specification__UAT__": "https://raw.githubusercontent.com/Rumii/Secruoser/master/iRuinResources_UAT.json",
     
     
     "SqueezeEnable": 0,

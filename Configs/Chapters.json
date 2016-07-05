@@ -2,80 +2,89 @@
     
     "5": {
         
-        "Utilities": {
-            
-            "ScheduleTask.view.interval": 25,
-            
-            "replace_ScheduleTask.view.values": [
-                                         {
-                                         "startPoint": [0, 0],
-                                         "endPoint": [0, 1],
-                                         "locations":[0.25, 0.75],
-                                         "colors":[[255, 255, 255, 0.75], [193, 230, 105, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [0, 0],
-                                         "endPoint": [0, 1],
-                                         "locations":[0.5, 0.75],
-                                         "colors":[[59, 59, 52, 0.75], [84, 94, 48, 0.25]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [1, 0],
-                                         "endPoint": [0, 0],
-                                         "locations":[0.5, 0.75],
-                                         "colors":[[39, 184, 184, 0.75], [176, 109, 218, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [1, 1],
-                                         "endPoint": [0, 0],
-                                         "locations":[0.5, 0.75],
-                                         "colors":[[109, 212, 218, 0.5], [218, 109, 212, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [0, 0],
-                                         "endPoint": [1, 1],
-                                         "locations":[0.2, 0.8],
-                                         "colors":[[109, 212, 218, 0.5], [109, 218, 116, 0.75]],
-                                         }
-                                         
-                                         
-                                         ]
-        },
-        
-        
-        "Controller_Schedule_Task" : {
-            
-            "view": {
-                
-                "backgroundView": {
-                    "~Executors" : {
-                        "1" : {
-                            "Action": "values.set",
-                            "keyPath": "layer",
-                            "stepTime": 3,
-                            "enableTransition": 1,
-                            "transitions": [10, 19],
-                            "values": {
-                                "startPoint": [0, 0],
-                                "endPoint": [0, 1],
-                                "locations":[0.4, 0.8],
-                                "colors":[[50, 55, 55, 0.75], [255, 255, 255, 0.5]],
+        "Controller_Schedule_Task": {
+            "background_changing": {
+                "~interval": 10,
+                "~loop": {
+                    "keyPaths": [
+                                 "view.backgroundView.~Executors.2.values.startPoint",
+                                 "view.backgroundView.~Executors.2.values.endPoint",
+                                 "view.backgroundView.~Executors.2.values.locations",
+                                 "view.backgroundView.~Executors.2.values.colors"
+                                 ],
+                    "values": [
+                               
+                               [
+                                [0, 0],
+                                [0, 0],
+                                [1, 0],
+                                [1, 1],
+                                [0, 0]
+                                ],
+                               
+                               [
+                                [0, 1],
+                                [0, 1],
+                                [0, 0],
+                                [0, 0],
+                                [1, 1]
+                               ],
+                               
+                               [
+                                [0.5, 0.75],
+                                [0.5, 0.75],
+                                [0.5, 0.75],
+                                [0.5, 0.75],
+                                [0.5, 0.75]
+                               ],
+                               
+                               [
+                                [[255, 255, 255, 0.75], [193, 230, 105, 0.75]],
+                                [[59, 59, 52, 0.75], [84, 94, 48, 0.25]],
+                                [[39, 184, 184, 0.75], [176, 109, 218, 0.75]],
+                                [[109, 212, 218, 0.5], [218, 109, 212, 0.75]],
+                                [[109, 212, 218, 0.5], [109, 218, 116, 0.75]]
+                               ]
+                               
+                               ]
+                },
+                "view": {
+                    "backgroundView": {
+                        "~Executors": {
+                            "2" : {
+                                "Action": "values.set",
+                                "stepTime": 2,
+                                "keyPath": "layer",
+                                "transitions": [10, 19],
+                                "values": {
+                                    "startPoint": [0, 0],
+                                    "endPoint": [0, 1],
+                                    "locations":[0.5, 0.75],
+                                    "colors":[[50, 55, 55, 0.75], [255, 255, 255, 0.5]],
+                                }
+                            }
+                        },
+                        "layer": {
+                            "~Executors": {
+                                "1": {
+                                    "Action": "values.animation",
+                                    "keyPath": "locations",
+                                    "stepTime": 2,
+                                    "matrix_delayRelativeToMilestone": 1,
+                                    "element_totalTransitTime": 5,
+                                    "values": [
+                                               [0.5, 0.75], [0, 0.2], [0, 0.4], [0, 0.6], [0, 0.8], [0, 1],
+                                               [0, 1], [0, 0.8], [0, 0.6], [0, 0.4], [0, 0.2], [0.5, 0.75]
+                                               ]
+                                }
                             }
                         },
                         
-                        "2" : {
-                            "Action": "values.set",
-                            "keyPath": "image",
-                        }
+                        "delete_~Executors": ""
                     }
                 }
             }
         }
-        
     },
     
     "6": "5",
@@ -200,85 +209,91 @@
         
     },
     
-    "11": {
+    "10": {
         
-        "Utilities": {
-            
-            "ScheduleTask.view.interval": 30,
-            
-            
-            "replace_ScheduleTask.view.values": [
-                                         {
-                                         "startPoint": [1, 0],
-                                         "endPoint": [0, 0],
-                                         "locations":[0.25, 0.75],
-                                         "colors":[[16, 177, 24, 0.75], [193, 230, 105, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [0, 0],
-                                         "endPoint": [0, 1],
-                                         "locations":[0.5, 0.75],
-                                         "colors":[[59, 59, 52, 0.75], [84, 94, 48, 0.25]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [1, 0],
-                                         "endPoint": [0, 1],
-                                         "locations":[0.5, 0.75],
-                                         "colors":[[39, 184, 184, 0.75], [177, 16, 114, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [1, 1],
-                                         "endPoint": [0, 0],
-                                         "locations":[0.5, 0.75],
-                                         "colors":[[109, 212, 218, 0.5], [218, 109, 212, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [0, 0],
-                                         "endPoint": [1, 1],
-                                         "locations":[0.2, 0.8],
-                                         "colors":[[109, 212, 218, 0.5], [109, 218, 116, 0.75]],
-                                         },
-                                         
-                                         {
-                                         "startPoint": [0, 1],
-                                         "endPoint": [1, 1],
-                                         "locations":[0.4, 0.7],
-                                         "colors":[[16, 16, 117, 0.5], [177, 99, 16, 0.75]],
-                                         }
-                                         
-                                         
-                                         ]
-        },
-        
-        
-        "Controller_Schedule_Task" : {
-            
-            "view": {
-                
-                "backgroundView": {
-                    "~Executors" : {
-                        "1" : {
-                            "Action": "values.set",
-                            "keyPath": "layer",
-                            "stepTime": 3,
-                            "enableTransition": 1,
-                            "transitions": [10, 19],
-                            "values": {
-                                "startPoint": [0, 0],
-                                "endPoint": [0, 1],
-                                "locations":[0.4, 0.8],
-                                "colors":[[50, 55, 55, 0.75], [255, 255, 255, 0.5]],
+        "Controller_Schedule_Task": {
+            "background_changing": {
+                "~interval": 10,
+                "~loop": {
+                    "keyPaths": [
+                                 "view.backgroundView.~Executors.2.values.startPoint",
+                                 "view.backgroundView.~Executors.2.values.endPoint",
+                                 "view.backgroundView.~Executors.2.values.locations",
+                                 "view.backgroundView.~Executors.2.values.colors"
+                                 ],
+                    "values": [
+                               
+                               [
+                                [0, 0],
+                                [0, 0],
+                                [1, 0],
+                                [1, 1],
+                                [0, 0]
+                                ],
+                               
+                               [
+                                [0, 1],
+                                [0, 1],
+                                [0, 0],
+                                [0, 0],
+                                [1, 1]
+                                ],
+                               
+                               [
+                                [0.5, 0.75],
+                                [0.5, 0.75],
+                                [0.5, 0.75],
+                                [0.5, 0.75],
+                                [0.5, 0.75]
+                                ],
+                               
+                               [
+                                [[255, 255, 255, 0.75], [193, 230, 105, 0.75]],
+                                [[59, 59, 52, 0.75], [84, 94, 48, 0.25]],
+                                [[39, 184, 184, 0.75], [176, 109, 218, 0.75]],
+                                [[109, 212, 218, 0.5], [218, 109, 212, 0.75]],
+                                [[109, 212, 218, 0.5], [109, 218, 116, 0.75]]
+                                ]
+                               
+                               ]
+                },
+                "view": {
+                    "backgroundView": {
+                        "~Executors": {
+                            "1" : {
+                                "Action": "values.set",
+                                "keyPath": "image",
+                            },
+                            "2" : {
+                                "Action": "values.set",
+                                "stepTime": 2,
+                                "keyPath": "layer",
+                                "transitions": [10, 19],
+                                "values": {
+                                    "startPoint": [0, 0],
+                                    "endPoint": [0, 1],
+                                    "locations":[0.5, 0.75],
+                                    "colors":[[50, 55, 55, 0.75], [255, 255, 255, 0.5]],
+                                }
+                            }
+                        },
+                        "layer": {
+                            "~Executors": {
+                                "1": {
+                                    "Action": "values.animation",
+                                    "keyPath": "locations",
+                                    "stepTime": 2,
+                                    "matrix_delayRelativeToMilestone": 1,
+                                    "element_totalTransitTime": 5,
+                                    "values": [
+                                               [0.5, 0.75], [0, 0.2], [0, 0.4], [0, 0.6], [0, 0.8], [0, 1],
+                                               [0, 1], [0, 0.8], [0, 0.6], [0, 0.4], [0, 0.2], [0.5, 0.75]
+                                               ]
+                                }
                             }
                         },
                         
-                        "2" : {
-                            "Action": "values.set",
-                            "keyPath": "image",
-                        }
+                        "delete_~Executors": ""
                     }
                 }
             }

@@ -1,7 +1,54 @@
 {
+    
+    "1": {
+        
+        "PHASES.POSITIONS": {
+            "RollIn": "rollout_0",
+        },
+        
+        "CONFIG.POSITIONS" : {
+            "RollIn": {
+                
+                "LINES" : {
+                    "COPY.COUNTS":   [10,13,16,25,20,11],
+                    
+                    "COPY": [[10,0],[10,1],[10,2],[10,3],[10,4],[10,5]]
+                },
+                
+                "INDEXPATHS": {
+                    "isBackward" : 0,
+                    "isReverse": 0,
+                    "isColumnBase_": 1,
+                }
+                
+            }
+        },
+        
+        "SYMBOLS_ACTIONEXECUTORS" : {
+            
+            "RollIn" : [
+                        
+                        {
+                        "matrix_delayRelativeToMilestone": 2,
+                        "queue_easingType": 29,
+                        "element_startingOffset": 8,
+                        }
+                        
+                        ],
+        },
+        
+    },
+    
     "2": {
         "PHASES.POSITIONS": {
-            "RollIn":  "rollin_1"
+            "Adjusts": "adjusts_1",
+        },
+    },
+    
+    "3": {
+        "PHASES.POSITIONS": {
+            "RollIn":  "rollin_1",
+            "Adjusts": "adjusts_2",
         },
         
         "CONFIG.POSITIONS": {
@@ -40,11 +87,14 @@
         }
     },
     
-    "3": {
-        
+    "4" :{
+        "PHASES.POSITIONS": {
+            "Adjusts": "adjusts_3",
+            "FillIn": "fillin_3",
+        },
     },
     
-    "4": {
+    "5": {
         
         "Controller_Schedule_Task": {
             "background_changing": {
@@ -132,7 +182,44 @@
         }
     },
     
-    "6": "5",
+    "6": {
+        
+        "PHASES.POSITIONS": {
+            "RollIn": "rollout_0"
+        },
+        
+        "CONFIG.POSITIONS" : {
+            "RollIn": {
+                
+                "LINES" : {
+                    "COPY.COUNTS":   [10,13,16,25,20,11],
+                    
+                    "COPY": [[10,0],[10,1],[10,2],[10,3],[10,4],[10,5]]
+                },
+                
+                "INDEXPATHS": {
+                    "isBackward" : 0,
+                    "isReverse": 0,
+                    "isColumnBase_": 1,
+                }
+                
+            }
+        },
+        
+        "SYMBOLS_ACTIONEXECUTORS" : {
+            
+            "RollIn" : [
+                        
+                        {
+                        "matrix_delayRelativeToMilestone": 2,
+                        "queue_easingType": 12,
+                        "element_startingOffset": 8,
+                        }
+                        
+                        ],
+        },
+        
+    },
     
     "7" : {
         
@@ -348,18 +435,16 @@
     },
     
     
-    "12": "5",
+    "12": "4",
     
-    "18": "7",
+    "13": "5",
     
-    "20": "5",
+    "15": "10",
     
-    "55": "11",
+    "16": "10",
     
-    "65": "8",
+    "18": "10",
     
-    "70": "9",
-    
-    "75": "8"
+    "20": "5"
     
 }

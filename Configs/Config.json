@@ -429,13 +429,13 @@
                     "format": "%.0f"
                 }
             },
-            "separator_top": {
+            "separator_top_": {
                 "~Class": "UIView",
                 "layer": {
                     "backgroundColor": 34
                 }
             },
-            "separator_bottom": {
+            "separator_bottom_": {
                 "~Class": "UIView",
                 "layer": {
                     "backgroundColor": 33

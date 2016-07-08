@@ -1,5 +1,6 @@
 {
     "__version__": 1,
+    "__interval__" : 60,
     "__specification__": "https://raw.githubusercontent.com/Rumii/Secruoser/master/iRuinResources.json",
     "__specification__UAT__": "https://raw.githubusercontent.com/Rumii/Secruoser/master/iRuinResources_UAT.json",
     
